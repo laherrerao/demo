@@ -122,14 +122,25 @@ public class LoginController {
         model.addAttribute("albums",almbumList);
 
         GetArtists getArtists =spotifyServices.getArtits(query);
+
         ArrayList<ItemsArtists> itemsArtists =getArtists.artists.getItems();
         ArrayList<ArtistsDao> artistsDaos =new ArrayList<>();
 
         for(int i=0;i<itemsArtists.size();i++){
+            System.out.println("artista");
+            System.out.println(itemsArtists.get(i));
             ArtistsDao artist = new ArtistsDao();
             artist.setName(itemsArtists.get(i).getName());
             artist.setGeners(itemsArtists.get(i).genres);
-            artist.setImage(itemsArtists.get(i).getImages().get(0).getUrl());
+            ArrayList<Image> images= itemsArtists.get(i).getImages();
+            if(images.size()>0){
+                artist.setImage(itemsArtists.get(i).getImages().get(0).getUrl());
+            }else {
+                artist.setImage("");
+            }
+
+
+
 
             artistsDaos.add(artist);
         }
