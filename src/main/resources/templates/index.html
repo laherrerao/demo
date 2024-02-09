@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="htpp://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login con Spotify</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}" >
+  <link rel="stylesheet" th:href="@{/css/css-footer.css}">
+  <style>
+        body{
+            font-family: geométricas sans-serif ;
+            background: black;
+            text-align: center;
+            color: #ffc107;
+            margin: 20%;
+            padding: 100px;
+        }
+        button{
+            font-family: geométricas sans-serif ;
+            background-color: #ffc107;
+            text-align: center;
+            color: #037F43;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Iniciar Sesión con Spotify</h1>
+
+<p>Haz clic en el botón para iniciar sesión:</p>
+
+<a th:href="@{/getLogin}"  target="_self">
+  <button>Iniciar Sesión con Spotify</button>
+</a>
+</body>
+</html>

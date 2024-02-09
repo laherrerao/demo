@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="htpp://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+
+            body{
+            font-family: geométricas sans-serif ;
+            background: #037F43;
+            color: #ffc107;
+            }
+            nav{
+            font-family: geométricas sans-serif ;
+            background: #ffc107;
+            color: #037F43;
+
+        }
+    </style>
+</head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<div class="container">
+    <br>
+    <h1>Canciones</h1>
+    <br>
+    <div class="row" >
+        <div th:each="track: ${tracks}" class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card" style="width: 18rem; height: 30rem;">
+                <img th:src="${track.image}">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Track: ' + ${track.name}"></h5>
+                    <p class="card-text" th:text="'Album: ' + ${track.album}"></p>
+                    <h6 class="card-text">Artistas: </h6>
+                    <div th:each="artist: ${track.artists}" >
+                        <p th:text="${artist}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h1>Albumes</h1>
+    <br>
+    <div class="row" >
+        <div th:each="album: ${albums}" class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card" style="width: 18rem; height: 30rem;">
+                <img th:src="${album.image}" >
+                <div class="card-body" >
+                    <h6 class="card-title" th:text="'Nombre: ' + ${album.name}"></h6>
+                    <h6 class="card-text">Artistas: </h6>
+                    <div th:each="artist: ${album.artists}" >
+                        <p th:text="${artist}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h1>Artistas</h1>
+    <br>
+    <div class="row" >
+        <div th:each="artist: ${artists}" class="col-sm-3 mb-3 mb-sm-0">
+            <div class="card" style="width: 18rem; height: 30rem;">
+                <img th:src="${artist.image}">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Nombre: ' + ${artist.name}"></h5>
+                    <h6 class="card-text">Generos: </h6>
+                    <div th:each="gener: ${artist.geners}" >
+                        <p th:text="${gener}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
